@@ -1,0 +1,90 @@
+ 
+import java.util.Scanner;
+
+public class Prop9 {
+        static Scanner leer = new Scanner(System.in);
+        static int vacasConCria, vacasSinCria, areaMayor70, areaMenor70, areaMayor70conCria, precioVerano, precioOtro;
+        static double haPrimavera, haVerano, haOtono, haInvierno, haCria;
+        static String season;
+        static double[] areaPorSeason;
+
+        public static double[] calcularAlimentacionHato(String season, int vacasConCria, int vacasSinCria)
+{
+            double areaTotal;
+            switch (season)        {
+                    case "1"://Primavera
+                    areaTotal = (vacasSinCria + vacasConCria) * haPrimavera;
+                    areaTotal = vacasConCria * haCria + areaTotal;
+                    
+                    break;
+                    case "2": //Verano
+                    areaTotal = (vacasSinCria + vacasConCria) * haVerano;
+                    areaTotal = vacasConCria * haCria + areaTotal;
+
+                    break;
+                    case "3": //Otoño
+                    areaTotal = (vacasSinCria + vacasConCria) * haOtono;
+                    areaTotal = vacasConCria * haCria + areaTotal;
+
+                    break;
+                    case "4"://Invierno
+                    areaTotal = (vacasSinCria + vacasConCria) * haInvierno;
+                    areaTotal = vacasConCria * haCria + areaTotal;
+                    break;
+            }
+        return pAreaPorSeason;
+}
+
+    public static double calcularBotellasdeLeche //Kenya
+    {    
+            return botellas;
+    }
+
+    public static double calcularPrecioVentaPorBotella //Oscar
+    {
+        return precioPorBotella;
+    }
+
+    public static double calcularGanancias(double botellasProducidas, double precioPorBotella) //Leo
+     
+    {
+        // Calcula las ganancias totales: depende de  la cantidad de botellas producidas por el hato y el precio actual por botella
+        double gananciaTotal = botellasProducidas * precioPorBotella; 
+        return gananciaTotal;
+    }
+
+
+
+    public static void main(String[] args)  throws Exception{
+        haPrimavera = 1.5;
+        haVerano = 3.0;
+        haOtono = 0.5;
+        haInvierno = 0.5;
+        haCria = 0.5;
+        areaMayor70 = 20;
+        areaMayor70conCria = 32;
+        areaMenor70 = 15;
+        precioVerano = 300;
+        precioOtro = 100;
+        boolean continuar = true;
+        do
+        {
+                System.out.println("Por favor ingrese la cantidad de vacas con cria");
+                vacasConCria = leer.nextInt();
+                System.out.println("Por favor ingrese la cantidad de vacas sin cria");
+                vacasSinCria = leer.nextInt();
+                System.out.println("Por favor indique la estación del año: 1.Primavera, 2.Verano, 3.Otono, 4.Invierno");
+                season = leer.nextInt();
+                areaPorSeason = calcularAlimentacionHato;
+                System.out.println("Desea hacer el cálculo de otra estación?");
+                continuar = leer.nextInt();
+        } while (continuar);
+    }
+
+    
+}
+
+
+
+
+
