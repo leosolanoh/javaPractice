@@ -10,30 +10,35 @@ public class Prop9 {
 
         public static double[] calcularAlimentacionHato(String season, int vacasConCria, int vacasSinCria)
 {
-            double areaTotal;
-            switch (season)        {
-                    case "1"://Primavera
-                    areaTotal = (vacasSinCria + vacasConCria) * haPrimavera;
-                    areaTotal = vacasConCria * haCria + areaTotal;
-                    
-                    break;
-                    case "2": //Verano
-                    areaTotal = (vacasSinCria + vacasConCria) * haVerano;
-                    areaTotal = vacasConCria * haCria + areaTotal;
+    double areaTotal;
+    double[] pAreaPorSeason = new double[4];
+    switch (season)
+    {
+        case "1"://Primavera
+        areaTotal = (vacasSinCria + vacasConCria) * haPrimavera;
+        areaTotal = vacasConCria * haCria + areaTotal;
+        pAreaPorSeason[0]= areaTotal;
+        break;
 
-                    break;
-                    case "3": //Otoño
-                    areaTotal = (vacasSinCria + vacasConCria) * haOtono;
-                    areaTotal = vacasConCria * haCria + areaTotal;
+        case "2": //Verano
+        areaTotal = (vacasSinCria + vacasConCria) * haVerano;
+        areaTotal = vacasConCria * haCria + areaTotal;
+        pAreaPorSeason[1]= areaTotal;
+        break;
 
-                    break;
-                    case "4"://Invierno
-                    areaTotal = (vacasSinCria + vacasConCria) * haInvierno;
-                    areaTotal = vacasConCria * haCria + areaTotal;
-                    break;
-            }
-        return pAreaPorSeason;
-}
+        case "3": //Otoño
+        areaTotal = (vacasSinCria + vacasConCria) * haOtono;
+        areaTotal = vacasConCria * haCria + areaTotal;
+        pAreaPorSeason[2]= areaTotal;
+        break;
+
+        case "4"://Invierno
+        areaTotal = (vacasSinCria + vacasConCria) * haInvierno;
+        areaTotal = vacasConCria * haCria + areaTotal;
+        pAreaPorSeason[3]= areaTotal;
+        break;
+    }
+    return pAreaPorSeason;
 
     public static double calcularBotellasdeLeche //Kenya
     {    
@@ -55,31 +60,42 @@ public class Prop9 {
 
 
 
-    public static void main(String[] args)  throws Exception{
-        haPrimavera = 1.5;
-        haVerano = 3.0;
-        haOtono = 0.5;
-        haInvierno = 0.5;
-        haCria = 0.5;
-        areaMayor70 = 20;
-        areaMayor70conCria = 32;
-        areaMenor70 = 15;
-        precioVerano = 300;
-        precioOtro = 100;
-        boolean continuar = true;
-        do
+    public static void main(String[] args)
+{
+    haPrimavera = 1.5;
+    haVerano = 3.0;
+    haOtono = 0.5;
+    haInvierno = 0.5;
+    haCria = 0.5;
+    areaMayor70 = 20;
+    areaMayor70conCria = 32;
+    areaMenor70 = 15;
+    precioVerano = 300;
+    precioOtro = 100;
+    boolean continuar = false;
+    String opcion;
+    do
+    {
+        System.out.println("Por favor ingrese la cantidad de vacas con cria");
+        vacasConCria = leer.nextInt();
+        System.out.println("Por favor ingrese la cantidad de vacas sin cria");
+        vacasSinCria = leer.nextInt();
+        System.out.println("Por favor indique la estación del año");
+        System.out.println("   1.Primavera");
+        System.out.println("   2.Verano, ");
+        System.out.println("   3.Otono");
+        System.out.println("   4.Invierno");
+        season = leer.next();
+        areaPorSeason = calcularAlimentacionHato(season, vacasConCria, vacasSinCria);
+        System.out.println("Desea hacer el cálculo de otra estación?");
+        opcion = leer.next();
+        if (opcion.equals("Si"))
         {
-                System.out.println("Por favor ingrese la cantidad de vacas con cria");
-                vacasConCria = leer.nextInt();
-                System.out.println("Por favor ingrese la cantidad de vacas sin cria");
-                vacasSinCria = leer.nextInt();
-                System.out.println("Por favor indique la estación del año: 1.Primavera, 2.Verano, 3.Otono, 4.Invierno");
-                season = leer.nextInt();
-                areaPorSeason = calcularAlimentacionHato;
-                System.out.println("Desea hacer el cálculo de otra estación?");
-                continuar = leer.nextInt();
-        } while (continuar);
-    }
+            continuar= true;
+        }
+    } while (continuar);
+
+}
 
     
 }
